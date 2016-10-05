@@ -1,0 +1,11 @@
+body{padding:0;margin:0;background: #f1f1f1;}
+.container{padding:20px 0;margin:0 200px;}
+.col-center{background: #fff;margin:0 auto;}
+.post{padding:15px 30px;}
+.post .title{color: #00b7e9;margin-bottom: 15px;font-size: 28px;}
+.post .meta {margin-bottom: 10px;padding-bottom: 5px;border-bottom: 1px dashed #ddd;}
+.post .meta span{font-size: 12px;color: #ccc;}
+.post .lead{border:1px solid #eee;border-left:3px solid #3498DB;padding:10px 10px;background: #eee;}
+.post .content{font-size: 14px; line-height: 1.9;color:#666;}
+.post .content p{margin-bottom: 1em;}
+.post .content h1, .post .content h2, .post .content h3, .post .content h4{border-bottom:1px dashed #3498DB;font-size: 20px;color:#333;padding-left: 10px;}

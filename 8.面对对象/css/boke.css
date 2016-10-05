@@ -1,0 +1,53 @@
+#author_profile,#div_digg,#blog-comments-placeholder,#comment_nav,#blog_post_info{display:none;}
+#ad_text_commentbox,#ad_t2,#opt_under_post,#ad_c1,#under_post_news,#under_post_kb,#HistoryToday{display: none;}
+#comment_form{margin-top:20px;}
+#comment_form .commentbox_title{width:830px;}
+#comment_form_container textarea{height:50px;}
+.commentbox_title_right{
+	float:left;
+	overflow: hidden;
+}
+.commentbox_title_right img{
+	display: block;
+    border: none;
+    float: right;
+    padding: 0 2px;
+    margin: 5px 0 0;
+}
+
+/*评论区域*/
+#divCommentShow{
+	background: #fff;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+.comment_my_posted{
+	padding: 10px 0;border-bottom: 1px dashed #ccc;
+}
+.bq_post_comment{
+	background: #eee;
+    font-style: normal;
+    margin: 2px 20px;
+    padding: 10px 5px;
+    line-height: 1.4;
+}
+.comment_my_posted img{
+	float: left;
+    padding: 5px 2px 0 0;
+}
+#comment_form_container{border: none;}
+
+
+/*文章*/
+.post{position: relative;}
+#topics .postDesc{position: absolute;top:55px;font-size: 12px;
+    width: 100%;
+    color: #777;
+    height: 24px;
+    line-height: 24px;
+    border-bottom: 1px dashed #ddd;
+    margin:0;
+}
+
+#topics .postBody{padding:10px 0;}
+#topics .postBody h1, #topics .postBody h2, #topics .postBody h3, #topics .postBody h4{border-bottom:1px dashed #3498DB;font-size: 20px;color:#333;padding-left: 10px;}

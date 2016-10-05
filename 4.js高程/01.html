@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <title></title>
+</head>
+<body>
+  <div class="container">
+    <div class="col-center">
+      <div class="post">
+
+        <h1 class="title">1.js简史、实现、及版本</h1>
+        <div class="meta">
+          <span>日期：2016-5-20</span>
+        </div>
+        <div class="lead">javascript诞生于1995年，起初是为了处理输入验证操作，现如今发展成为一门功能全面的编程语言。本文是高程第一章的读书笔记，简单记录下第一章的学习总结。</div>
+        <div class="content">
+          <h2>1.JavaScript简史</h2>
+          <p>js诞生于1995年，主要是用来处理服务器负责的一些输入验证操作，这样就可以提前规避一些错误，毕竟那个时候网速才20~30kbit/s,估计注册个账号都要半天，netscape就开发出了LiveScript,在发布的时候为了出名，搭java的车改名为javascript，其实二者没关系，后来js1.0成功了，马上推出了1.1，IE不干了，搞了个JScript,这就坑了我们开发者，因为我们不仅需要实现这个网景公司的js,还要实现IE的js,就不能一样吗？然而直到现在，我们还是不得不为了实现我们的效果而写不同的代码？</p>
+          <p>我们呼吁标准，1997年，以网景的js1.1为蓝本的制定标准的建议提交给了ECMA，他们指定T39经过数月完成了ECMA-262,第二年，ISO/IEC也采用了ECMA-262作为标准。浏览器开发商就开始以ECMA作为js的实现标准了。</p>
+          <h2>2.javascript实现</h2>
+          <p>
+            这里我们要清楚一点，就是js不完全等于ECMAScript,一个完整的js包含三个部分。js实现就是实现这三部分。ECMA-262只是语言的基础，浏览器是ECMA实现的宿主，其它的宿主环境如node.js AdobeFlash。宿主环境在提供ECMA实现的同时，还会提供该语言的扩展如DOM,而利用ECMA提供的类型和语法提供更多的功能，以便实现对环境的操作。现在大致清楚了整个js的构建。下面具体讨论下这三部分。</p>
+          <ul>
+            <li>ECMA</li>
+            <li>DOM</li>
+            <li>BOM</li>
+          </ul>
+          <h3>ECMA</h3>
+          <p>ECMA提供了语法、类型、语句、关键字、保留字、操作符、对象。语言是不断发展的，现在是Es6,Es1本质上与网景的js1.1一样，不过删除了所有针对浏览器的代码，并作了一些小改动，而且对象也变成与平台无关的。Es2主要为了与ISO/IEC-16262保持严格一致，没有做修改，Es3真正做了修改，主要涉及字符串处理，错误定义和数值输出。新增了正则，新控制语句，try-catch并围绕标准的国际化做了一些小改动，标志着ECMAScript成为一门真正的编程语言。Es4由于改动太大，几乎成为另外一门语言，因此被放弃，推出了3.1也就是Es5.于2009年12月3日正式发布。Es5主要澄清3版中已知的歧义，添加了原生json对象，继承的方法，高级属性定义另外还包括一种严格模式。15年发布的Es6，目前各大浏览器都在不同程度上的实现中。因此现在我们主要学习的就是Es3和5就这还有一些浏览器没有实现。</p>
+          <p>ECMA兼容：即想完成ECMAScript的实现，1.支持ECMA-262描述的所有提供，2.支持Unicode字符 另外可以实现下列扩展，添加ECMA-262没有描述的类型，值对象，属性函数。及修改和扩展内置的正则语法。这样就便于灵活扩展。受到广大欢迎。</p>
+          <p>浏览器的实现程度是怎样的呢，IE9+ Firefox4.0+都实现了5版。IE8实现部分</p>
+          <h3>文档对象模型DOM</h3>
+          <p>DOM是针对XML但经过扩展用于HTML的API，(不仅仅针对js),把整个页面映射成一个多层节点结构。每个组成部分都是某种类型的节点，节点又包含不同类型的数据。原来IE4和网景4支持不同形式的DHTML（也就是DOM0级）,结果又造成了不同的标准，所有又要统一，这个标准的制定者就是W3C。</p>
+          <p>DOM一级于98年成为W3C推荐标准，包含DOM Core和DOM HTML。其中，核心规定是如何映射基于XML的文档结构，简化文档任一部分的访问和操作，DOM HTML在核心的基础上添加了对HTML的对象和方法</p>
+          <p>DOM一级主要是映射文档结构，DOM二级有扩充了鼠标和用户界面事件，范围，遍历等模块。通过对象接口增加了对CSS的支持。同时核心也被扩展开始支持XML命名空间。DOM视图、事件、样式、遍历和范围</p>
+          <p>DOM3引入了DOM Load and Save DOM Validation 对核心也进行了扩展，开始支持XML1.0 设计XML Infoset XPath XMLBase </p>
+          <p>除了DOM 核心和DOM HTML，其它语言也发布了针对自己的DOM标准，下面的都是基于XML的，SVG MathML SMIL</p>
+          <p>浏览器对DOM的支持：IE5才真正支持DOM1级，IE6 7 都没有引入新的DOM功能，IE8才对以前DOM实现的bug进行了修复。IE9+ 实现了1 2 3级其它基本上都是完全支持1 部分支持2 3 .现在浏览器主要就是实现DOM标准，可以看到这也是IE这么恶心的原因之一。</p>
+          <h3>浏览器对象模型</h3>
+          <p>BOM可以操作浏览器显示界面以外的部分。但是之前没有标准，各个浏览器各自实现不同。H5发表之后，才有了正式的规范，主要包括，弹出新浏览器窗口，移动缩放关闭浏览器窗口，navigator location screen 对象，cookies XMLHttpRequest IE的ActiveXObject这样的自定义对象，</p>
+          <h2>总结</h2>
+          <p>js是一种专为网页交互设计的语言，由三个不同部分祖征，当前的浏览器都不同程度上实现了部分标准，以后学习的时候对于兼容性有个整体性的认识，相信以后会慢慢标准化，不用再为兼容性大伤脑经，前端的春天也会到来。</p>
+        </div>
+
+      </div>
+    </div>   
+  </div>
+</body>
+<script src="js/index.js"></script>
+<script src="js/prism.js"></script>
+</html>

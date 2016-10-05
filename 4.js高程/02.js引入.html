@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <title></title>
+</head>
+<body>
+  <div class="container">
+    <div class="col-center">
+      <div class="post">
+
+        <h1 class="title">2.js的引入 加载，平稳退化。</h1>
+        <div class="meta">
+          <span>日期：2016-5-21</span>
+        </div>
+        <div class="lead">这个主要谈论的js的引入问题，理清js的加载方式，和摆放位置，以及浏览器不支持js时，使用noscript平稳退化。对于我们以后处理js文件很有帮助。也牵扯到用户体验，和优化的一些知识。</div>
+        <div class="content">
+          <h2>1.JavaScript的引入</h2>
+          <p>通过&lt;script&gt;标签引入js,他可以放在html内的任何位置。这个标签还有6个属性，async、charset、defer、language、src、type。其中常用的就是async表示立即下载脚本但不妨碍其它操作，也就是异步，defer表示脚本可以延迟到文档解析或显示完毕之后执行，language已经被废弃，charset指定字符编码集，src引入外部文件，type指定MIME类型，现在已经默认是text/javascript了，</p>
+          <p>两种引入方式：1.外部文件;2.直接在script标签内部。注意的是不要再js代码中出现&lt;/script&gt;,这样会出错，通过转义字符将'/'，转义成'\/'之后即可，如果是外部引入，在引入的同时(包括下载)页面的处理会停止的，而且.js扩展名不是必需的，这样可以使用服务器语言动态生成js,但是服务器需要根据扩展名决定MIME类型，所以记得指定正确的MIME类型，确保能被正确识别。这两种方式不能同时存在，忽略嵌入代码，解析外部文件。</p>
+          <p>同时，可以跨域外部引入js，类似img标签，比如我们用的cdn，但是要确保我们跨域引入的代码没有恶意。同时只要不存在defer,async属性，就会按照script标签在页面中的次序依次进行解析。原来为了外部文件的统一管理把js css 都放在head区域内，但浏览器遇到body标签才开始呈现内容，而js在下载和解析期间，浏览器不做其它工作，所以必须等到所有js文件下载解析完毕之后才能呈现内容，而这之前页面一片空白，所以现在都把js放到body元素后，</p>
+          <h3>延迟脚本</h3>
+          <p>就是设置defer属性，html5的意思是先下载，dom解析完毕后，DOMContentLoaded事件触发前。按照先后顺序运行，但是现实不是这样,而且没实现的浏览器会忽略这个属性，所以保险点就是还是放到最后。</p>
+          <h3>异步脚本</h3>
+          <p>设置async属性，同样只适用于外部文件，立即下载，延迟执行，但是保证不了按照先后顺序执行，核心思想就是异步。</p>
+          <h3>XHTML(可扩展的超文本标记语言)</h3>
+          <p>在XHTML的js代码不支持&lt;因为会被解析成一个标签的开始，可以使用CData在兼容的XHTML的浏览器上解决，在不支持的浏览器中将之注释就行</p>
+          <h3>推荐的做法</h3>
+          <p>统一使用外部js文件，且放在一起，便于维护。</br>可缓存，这样两个页面引用同一个文件时，不同再重复下载</br>通过外部文件就不同再管XHTML和注释hack了，因为他们实现的语法一样。</p>
+          <h2>文档模式</h2>
+          <p>IE5.5引入了文档模式的概念，通过文档类型（doctype)实现切换，最开始有混杂和标准（严格）两种，后来又引入了准标准（过渡），其实和标准基本一致，所以实际还是两种，现在html5标准一出来，我们基本上不用管这个了。</p>
+          <h2>&lt;noscript&gt;</h2>
+          <p>当浏览器不支持脚本或者脚本被禁用是，为了平稳退化，引入一个&lt;noscript&gt;他可以包含body中的任何元素，除了script,在上述两种情况发生时，它里面的内容就显示出来了、通过这个可以处理如IE禁用脚本时的情况</p>
+          <h2>总结</h2>
+          <p>在使用js时，尽量以外部脚本的方式引入，他是按照从上到下的顺序进行解析的，并且在下载和解析脚本时会暂停页面其它操作，为了防止页面空白，要放在body后面，注意使用defer和async时，执行时间的不同，h5出来之后不同再管文档模式，但注意在页面不支持js时,可以使用noscript平稳退化。</p>
+
+
+        </div>
+
+      </div>
+    </div>   
+  </div>
+</body>
+<script src="js/index.js"></script>
+<script src="js/prism.js"></script>
+</html>

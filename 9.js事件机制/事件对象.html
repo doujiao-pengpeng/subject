@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <title></title>
+</head>
+<body style="padding:100px;" id="body">
+  <div id="parent">
+    <div id="child">
+      求点击
+    </div>
+  </div>
+  <a href="www.baidu.com" id="btn">点击跳转</a>
+</body>
+<script>
+  window.onload=function(){
+    /*DOM2级事件阻止默认
+    var btn = document.getElementById('btn');
+    btn.addEventListener('click',function(e){
+      alert(e.eventPhase);
+      e.preventDefault();
+      e.stopPropagation();
+
+    },false);
+
+    var body = document.getElementById('body');
+    body.addEventListener('click',function(e){
+      alert(e.eventPhase);
+    },true);
+    */
+
+    /*IE专有*/
+    var btn= document.getElementById('btn');
+    btn.attachEvent('onclick',function(e){
+      e=e||window.event;
+      e.returnValue=false;
+    })
+
+  }
+</script>
+</html>

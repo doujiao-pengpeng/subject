@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <title></title>
+</head>
+<body>
+  <div class="container">
+    <div class="col-center">
+      <div class="post">
+
+        <h1 class="title">2.js变量 作用域 内存。</h1>
+        <div class="meta">
+          <span>日期：2016-6-1</span>
+        </div>
+        <div class="lead">这章主要讨论基本类型和引用类型的值，执行环境 垃圾收集机制</div>
+        <div class="content">
+          <h2>1.基本类型和引用类型的值</h2>
+          <p>js变量是独特的，松散类型的本质决定了js的变量只是在特定的时间保存特定值的一个名字而已，这就决定了它的数据类型和值类型可以在脚本的生命周期内发生变化。</p>
+          <h3>基本类型和引用类型</h3>
+          <p>js的值分两种类型：基本类型和引用类型。基本类型就是5种基本数据类型，仅仅是简单的数据段，他们都是按值访问的。而引用类型的值是保存在内存中的由多个值构成的对象，js不允许直接访问内存的位置，所以对他们是按引用访问的，即实际操作的是对象的引用。</p>
+          <h3>动态的属性</h3>
+          <p>值类型的不同决定了能对他们进行的操作也不同，他们的创建是类似的，创建变量并赋值。当值保存到变量之后，对不同类型值可以进行的操作不同。引用类型，可以动态到增删改查其属性和方法。但是我们不能给基本类型的值添加属性和方法，尽管他们不会导致任何错误。</p>
+          <pre><code class="language-js">var a="hh";
+a.a=27;//这里不会报错是因为使用了对应的包装函数。
+console.log(a.1);//undefined
+var b={a:11}
+b.a=3;
+console.log(a.2);//3
+</code></pre>
+          <h3>复制变量值</h3>
+          <p>当将一个变量a的值赋给另外一个变量b时，如果是基本类型，就复制一份副本赋给新变量，改变b对a不会有影响。而引用类型，复制的是对象的引用，a和b指向的其实还是同一个对象，改变a b任何一个都会对另外一个产生影响。</p>
+          <h3>传递参数</h3>
+          <p>所有的函数参数都是按值传递的，也就是把函外部的值赋值给函数内部的参数，和把一个变量复制给另外一个变量一样，</p>
+        </div>
+
+      </div>
+    </div>   
+  </div>
+</body>
+<script src="js/index.js"></script>
+<script src="js/prism.js"></script>
+</html>

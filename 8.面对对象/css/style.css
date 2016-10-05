@@ -1,0 +1,14 @@
+body{padding:0;margin:0;background: #f1f1f1;}
+h1,h2,h3,h4,h5,h6{font-weight: 600; color: #2c3e50;}
+.container{padding:20px 0;margin:0 200px;}
+.col-center{background: #fff;margin:0 auto;}
+.post{padding:15px 30px;}
+.post .title{color: #00b7e9;margin-bottom: 15px;font-size: 28px;}
+.post .meta {margin-bottom: 10px;padding-bottom: 5px;border-bottom: 1px dashed #ddd;}
+.post .meta span{font-size: 12px;color: #ccc;}
+.post .lead{border:1px solid #eee;border-left:3px solid #3498DB;padding:10px 10px;background: #eee;}
+.post .content{font-size: 14px; line-height: 1.9;color:#666;}
+.post .content p{margin-bottom: 1em;}
+.post .content h1, .post .content h2{padding-bottom: 0.7em;border-bottom:1px solid #ddd;font-size: 24px;margin: 1.5em 0 0.8em;}
+.post .content h3, .post .content h4{font-size: 20px;margin: 15px 0 18px;}
+.post .content h3:before, .post .content h4:before{content:"#"; color:#42b983;padding-right: 10px;}
